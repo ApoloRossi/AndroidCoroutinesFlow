@@ -1,12 +1,10 @@
 package com.devtides.coroutinesretrofit.view
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.devtides.androidcoroutinesflow.R
-import com.devtides.androidcoroutinesretrofit.model.NewsArticle
-import kotlinx.android.synthetic.main.item_news_article.view.*
+import com.devtides.androidcoroutinesflow.databinding.ItemNewsArticleBinding
+import com.devtides.androidcoroutinesflow.model.NewsArticle
 
 class NewsListAdapter: RecyclerView.Adapter<NewsListAdapter.NewsItemViewHolder>() {
 
@@ -17,9 +15,14 @@ class NewsListAdapter: RecyclerView.Adapter<NewsListAdapter.NewsItemViewHolder>(
         notifyItemInserted(0)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int) = NewsItemViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.item_news_article, parent, false)
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int) =
+        NewsItemViewHolder(
+            ItemNewsArticleBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
 
     override fun getItemCount() = newsItems.size
 
@@ -27,7 +30,7 @@ class NewsListAdapter: RecyclerView.Adapter<NewsListAdapter.NewsItemViewHolder>(
         holder.bind(newsItems[position])
     }
 
-    class NewsItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class NewsItemViewHolder(view: ItemNewsArticleBinding): RecyclerView.ViewHolder(view.root) {
 
         private val imageView = view.newsImage
         private val author = view.newsAuthor

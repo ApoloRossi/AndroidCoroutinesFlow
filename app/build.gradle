@@ -32,6 +32,10 @@ android {
         jvmTarget = '17'
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     namespace 'com.devtides.androidcoroutinesflow'
 }
 

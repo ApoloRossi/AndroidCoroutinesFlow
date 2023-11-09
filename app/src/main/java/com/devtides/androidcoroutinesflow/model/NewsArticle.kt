@@ -1,6 +1,4 @@
-package com.devtides.androidcoroutinesretrofit.model
-
-
+package com.devtides.androidcoroutinesflow.model
 data class NewsArticle(
     val author: String? = null,
     val title: String? = null,
