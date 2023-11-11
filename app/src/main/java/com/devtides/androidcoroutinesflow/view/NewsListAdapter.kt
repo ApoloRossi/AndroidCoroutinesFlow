@@ -1,10 +1,11 @@
-package com.devtides.coroutinesretrofit.view
+package com.devtides.androidcoroutinesflow.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.devtides.androidcoroutinesflow.databinding.ItemNewsArticleBinding
 import com.devtides.androidcoroutinesflow.model.NewsArticle
+import com.devtides.coroutinesretrofit.view.loadImage
 
 class NewsListAdapter: RecyclerView.Adapter<NewsListAdapter.NewsItemViewHolder>() {
 
