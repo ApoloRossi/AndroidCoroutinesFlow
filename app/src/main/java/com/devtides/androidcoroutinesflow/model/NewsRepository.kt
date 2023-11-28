@@ -11,20 +11,4 @@ class NewsRepository {
         private const val BASE_URL = "https://raw.githubusercontent.com/DevTides/NewsApi/master/"
         private const val NEWS_DELAY = 3000L
     }
-
-    private val newService = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(NewsService::class.java)
-
-    fun getNewsArticles() : Flow<NewsArticle> {
-        return  flow {
-            var newSource = newService.getNews()
-            newSource.forEach {
-                emit(it)
-                delay(NEWS_DELAY)
-            }
-        }
-    }
 }
